@@ -60,6 +60,7 @@
           <li><a href="pricing.php">Pricing</a></li>
           <li><a href="contact.php">Contact</a></li>
           <li><a href="track-your-order.php" class="active">Order</a></li>
+          <li><a href="myOrder.php" class="">My Orders</a></li>
           <li><a class="get-a-quote" href="get-a-quote.php">Get a Quote</a></li>
         </ul>
       </nav><!-- .navbar -->
@@ -247,7 +248,7 @@
 
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" />
 <script src="https://unpkg.com/maplibre-gl@2.1.9/dist/maplibre-gl.js"></script>
-
+<script src="assets/js/track-order.js" defer></script> 
 <script>
   const weightInput = document.getElementById('weight');
   const costInput = document.getElementById('cost');
@@ -264,6 +265,9 @@
       costInput.value = '';
     }
   });
+
+
+
   let map;
   let generatedTrackingId;
   let storedWarehouse, storedDestination, storedWeight;
@@ -303,7 +307,7 @@
 
     const weight = weightInput.value;
     const shipping = parseFloat(costInput.value) || 0;
-    const tax = 0.16 * shipping;git 
+    const tax = 0.16 * shipping;
     const total = shipping + tax;
     const email = emailInput.value;
 
@@ -333,10 +337,18 @@
   });
 
   document.getElementById("track-btn").addEventListener("click", async function() {
+    
     let enteredTrackingId = document.getElementById("tracking-input").value;
     if (enteredTrackingId === generatedTrackingId) {
       document.getElementById("tracking-form").style.display = "none";
       document.getElementById("map-container").style.display = "block";
+
+      const shippingCost = parseFloat(costInput.value) || 0;
+      const taxCharged = 0.16 * shippingCost;
+      const totalPrice = shippingCost + taxCharged;
+
+      window.addOrder({ trackingId: generatedTrackingId, weight: storedWeight, cost: totalPrice, destination: storedDestination });
+
       const email = emailInput.value;
       const name = nameInput.value;
 
@@ -345,6 +357,7 @@
         name: name,
         email: email,
       });
+
       
       initMap();
       
@@ -381,8 +394,11 @@
     } else {
       alert("Invalid Tracking ID. Please enter the correct one.");
     }
+    
+
+   
   });
 </script>
-<script src="assets/js/track-order.js"></script> 
+
 </body>
 </html>

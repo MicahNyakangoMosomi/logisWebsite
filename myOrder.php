@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Service Details</title>
+  <title>Services</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -27,8 +27,22 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.css" rel="stylesheet">
 
+  <style>
+    [id^="map-"] {
+    height: 300px;
+    display: none;
+    margin-top: 
+    </style>
 
+  <!-- =======================================================
+  * Template Name: Logis
+  * Updated: Aug 30 2023 with Bootstrap v5.3.1
+  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
@@ -37,7 +51,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.php" class="logo d-flex align-items-center">
+      <a href="#index.php" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>Logis</h1>
@@ -47,8 +61,9 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-        <li><a href="about.php">About</a></li>
-          <li><a href="services.php" class="active">Services</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="#" class="active">Services</a></li>
           <li><a href="pricing.php">Pricing</a></li>
           <li><a href="contact.php">Contact</a></li>
           <li><a href="track-your-order.php">Order</a></li>
@@ -58,8 +73,7 @@
       </nav><!-- .navbar -->
 
     </div>
-  </header>
-  <!-- End Header -->
+  </header><!-- End Header -->
   <!-- End Header -->
 
   <main id="main">
@@ -69,11 +83,8 @@
         <div class="container position-relative">
           <div class="row d-flex justify-content-center">
             <div class="col-lg-6 text-center">
-              <h2>Service Details</h2>
-              <p class="text-secondary">
-                Our metropolitan delivery services ensure your parcels reach their destinations efficiently and reliably across the city. 
-                From swift pickups to timely doorstep deliveries, we manage every step to ensure a seamless experience.
-              </p>
+              <h2>My orders</h2>
+              <p class="text-light">My reports</p>
             </div>
           </div>
         </div>
@@ -82,62 +93,21 @@
         <div class="container">
           <ol>
             <li><a href="index.php">Home</a></li>
-            <li>Service Details</li>
+            <li>My Orders</li>
           </ol>
         </div>
       </nav>
-    </div>
-    <!-- End Breadcrumbs -->
-  
-    <!-- ======= Service Details Section ======= -->
-    <section id="service-details" class="service-details">
-      <div class="container" data-aos="fade-up">
-        <div class="row gy-4">
-          <div class="col-lg-4">
-            <div class="services-list">
-              <a href="#" class="active">Metropolitan Delivery</a>
-              <a href="#">Logistics</a>
-              <a href="#">Cargo</a>
-              <a href="#">Trucking</a>
-              <a href="#">Packaging</a>
-              <a href="#">Warehousing</a>
-            </div>
-            <h4>Efficient and Reliable Urban Deliveries</h4>
-            <p>
-              Our metropolitan delivery services guarantee prompt and secure delivery of your parcels within the city. 
-              We offer flexible pickup and delivery times to align with your schedule and ensure your parcels reach their destinations safely.
-            </p>
-          </div>
-          <div class="col-lg-8">
-            <img src="assets/img/service-details.jpg" alt="" class="img-fluid services-img">
-            <h3>Professional Handling of Urban Shipments</h3>
-            <p>
-              Our services encompass quick pickups, safe transit, and dependable doorstep deliveries. 
-              We ensure that your goods are managed with utmost care and delivered promptly, meeting your urban logistics needs.
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Convenient and flexible pickup and delivery schedules.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Secure handling and transportation of parcels.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Real-time tracking for transparency and assurance.</span></li>
-            </ul>
-            <p>
-              Leveraging our extensive urban network and expertise, we offer competitive rates and reliable services. 
-              Whether it's a single parcel or multiple shipments, our team is prepared to handle all your metropolitan delivery needs.
-            </p>
-            <p>
-              Prioritizing customer satisfaction, we provide personalized service to address any inquiries and ensure a seamless delivery experience. 
-              Trust us to deliver your parcels swiftly and securely throughout the metropolitan area.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Service Details Section -->
-  </main>
-  <!-- End #main -->
-  
+    </div><!-- End Breadcrumbs -->
 
-  
+    <section>
+      <div class="container" id="orders-container"></div>
+    </section>
+
+    
+
+    
+  </main><!-- End #main -->
+
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
@@ -147,7 +117,7 @@
           <a href="index.php" class="logo d-flex align-items-center">
             <span>Logis</span>
           </a>
-          <p class="text-light">For all your logistics needs, connect with us on our social media channels. Our team is here to assist you and ensure your shipments are delivered on time and with care. Follow us on Twitter, Facebook, Instagram, and LinkedIn to stay up-to-date on our services and special offers.</p>
+          <p>For all your logistics needs, connect with us on our social media channels. Our team is here to assist you and ensure your shipments are delivered on time and with care. Follow us on Twitter, Facebook, Instagram, and LinkedIn to stay up-to-date on our services and special offers.</p>
           <div class="social-links d-flex mt-4">
             <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -209,7 +179,6 @@
   </footer><!-- End Footer -->
   <!-- End Footer -->
 
-
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
@@ -221,8 +190,11 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- MapLibre GL JS Script -->
+  <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
 
   <!-- Template Main JS File -->
+  <script src="assets/js/track-order.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>

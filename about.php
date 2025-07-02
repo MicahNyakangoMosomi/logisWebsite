@@ -52,6 +52,7 @@
           <li><a href="pricing.php">Pricing</a></li>
           <li><a href="contact.php">Contact</a></li>
           <li><a href="track-your-order.php">Order</a></li>
+          <li><a href="myOrder.php" class="">My Orders</a></li>
           <li><a class="get-a-quote" href="get-a-quote.php">Get a Quote</a></li>
         </ul>
       </nav>
